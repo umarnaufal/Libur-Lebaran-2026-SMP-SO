@@ -1,0 +1,116 @@
+/* ===================================== */
+/* VARIABEL WARNA */
+/* ===================================== */
+:root {
+    /* ✨ BOLEH DIGANTI WARNA */
+    --primary: #047857;
+    --accent: #F59E0B;
+
+    --text-main: #1F2937;
+    --text-muted: #4B5563;
+
+    --bg-page: #F3F4F6;
+    --bg-card: #FFFFFF;
+
+    /* ✨ BOLEH DIGANTI FONT */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Outfit', sans-serif;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-page);
+    color: var(--text-main);
+}
+
+/* ===================================== */
+/* HERO */
+/* ===================================== */
+.hero {
+    /* ✨ BOLEH DIGANTI background */
+    background: linear-gradient(135deg, rgba(4,120,87,0.9), rgba(16,185,129,0.8)),
+                url("img/bg.jpg");
+
+    min-height: 60vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: white;
+}
+
+/* ===================================== */
+/* CARD CERITA */
+/* ===================================== */
+.story-article {
+    display: flex;
+    gap: 3rem;
+
+    /* ✨ BOLEH DIGANTI ukuran */
+    margin-bottom: 4rem;
+
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+/* MEMBALIK POSISI */
+.story-article.reversed {
+    flex-direction: row-reverse;
+}
+
+/* ===================================== */
+/* FOTO */
+/* ===================================== */
+.photo-card {
+    /* ✨ BOLEH DICOBA: rotation */
+    transform: rotate(var(--rotation));
+
+    transition: 0.3s;
+}
+
+/* HOVER EFFECT */
+.photo-card:hover {
+    transform: scale(1.05);
+}
+
+/* ===================================== */
+/* GAMBAR */
+/* ===================================== */
+.photo-wrapper img {
+    width: 100%;
+    height: 100%;
+
+    /* Penting agar gambar tidak gepeng */
+    object-fit: cover;
+}
+
+/* ===================================== */
+/* TEKS */
+/* ===================================== */
+.story-text h2 {
+    color: var(--primary);
+}
+
+.story-text p {
+    color: var(--text-muted);
+}
+
+/* ===================================== */
+/* RESPONSIVE */
+/* ===================================== */
+@media (max-width: 768px) {
+    .story-article {
+        flex-direction: column;
+    }
+}
