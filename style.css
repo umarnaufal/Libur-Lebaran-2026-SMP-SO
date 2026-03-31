@@ -1,116 +1,143 @@
 /* ===================================== */
-/* VARIABEL WARNA */
+/* VARIABEL WARNA DAN FONT */
 /* ===================================== */
 :root {
-    /* ✨ BOLEH DIGANTI WARNA */
+    /* ✨ BOLEH DIGANTI: warna utama website */
     --primary: #047857;
+
+    /* ✨ BOLEH DIGANTI: warna tambahan (aksen) */
     --accent: #F59E0B;
 
+    /* ✨ BOLEH DIGANTI: warna teks utama */
     --text-main: #1F2937;
+
+    /* ✨ BOLEH DIGANTI: warna teks paragraf */
     --text-muted: #4B5563;
 
+    /* ✨ BOLEH DIGANTI: warna background halaman */
     --bg-page: #F3F4F6;
+
+    /* ✨ BOLEH DIGANTI: warna card */
     --bg-card: #FFFFFF;
 
-    /* ✨ BOLEH DIGANTI FONT */
+    /* ✨ BOLEH DIGANTI: font untuk judul */
     --font-heading: 'Playfair Display', serif;
+
+    /* ✨ BOLEH DIGANTI: font untuk isi */
     --font-body: 'Outfit', sans-serif;
 }
 
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* BODY */
-body {
-    font-family: var(--font-body);
-    background-color: var(--bg-page);
-    color: var(--text-main);
-}
 
 /* ===================================== */
-/* HERO */
+/* RESET (JANGAN DIUBAH) */
+/* ===================================== */
+* {
+    margin: 0; /* menghapus jarak luar bawaan */
+    padding: 0; /* menghapus jarak dalam bawaan */
+    box-sizing: border-box; /* membuat ukuran lebih rapi */
+}
+
+
+/* ===================================== */
+/* BODY (HALAMAN UTAMA) */
+/* ===================================== */
+body {
+    font-family: var(--font-body); /* mengambil font dari variabel */
+    background-color: var(--bg-page); /* warna background */
+    color: var(--text-main); /* warna teks utama */
+}
+
+
+/* ===================================== */
+/* HERO (BAGIAN ATAS HALAMAN) */
 /* ===================================== */
 .hero {
-    /* ✨ BOLEH DIGANTI background */
-    background: linear-gradient(135deg, rgba(4,120,87,0.9), rgba(16,185,129,0.8)),
-                url("img/bg.jpg");
+    /* ✨ BOLEH DIGANTI: warna gradient & gambar */
+    background: linear-gradient(
+        135deg,
+        rgba(4,120,87,0.9),
+        rgba(16,185,129,0.8)
+    ),
+    url("img/bg.jpg");
 
-    min-height: 60vh;
+    min-height: 60vh; /* tinggi minimal layar */
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* mengaktifkan flexbox */
+    justify-content: center; /* tengah horizontal */
+    align-items: center; /* tengah vertikal */
 
-    text-align: center;
-    color: white;
+    text-align: center; /* teks rata tengah */
+    color: white; /* warna teks */
 }
+
 
 /* ===================================== */
 /* CARD CERITA */
 /* ===================================== */
 .story-article {
-    display: flex;
-    gap: 3rem;
+    display: flex; /* membuat gambar & teks sejajar */
+    gap: 3rem; /* jarak antar elemen */
 
-    /* ✨ BOLEH DIGANTI ukuran */
+    /* ✨ BOLEH DIGANTI: jarak antar card */
     margin-bottom: 4rem;
 
-    background: var(--bg-card);
-    padding: 2rem;
-    border-radius: 20px;
+    background: var(--bg-card); /* warna card */
+    padding: 2rem; /* jarak dalam */
+    border-radius: 20px; /* sudut melengkung */
 }
 
-/* MEMBALIK POSISI */
+
+/* MEMBALIK POSISI (JANGAN DIHAPUS) */
 .story-article.reversed {
-    flex-direction: row-reverse;
+    flex-direction: row-reverse; /* membalik posisi gambar & teks */
 }
+
 
 /* ===================================== */
 /* FOTO */
 /* ===================================== */
 .photo-card {
-    /* ✨ BOLEH DICOBA: rotation */
+    /* ✨ BOLEH DICOBA: ubah kemiringan */
     transform: rotate(var(--rotation));
 
-    transition: 0.3s;
+    transition: 0.3s; /* animasi halus */
 }
 
-/* HOVER EFFECT */
+
+/* EFEK SAAT DIHOVER */
 .photo-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* membesar sedikit */
 }
+
 
 /* ===================================== */
 /* GAMBAR */
 /* ===================================== */
 .photo-wrapper img {
-    width: 100%;
-    height: 100%;
+    width: 100%; /* lebar penuh */
+    height: 100%; /* tinggi penuh */
 
-    /* Penting agar gambar tidak gepeng */
-    object-fit: cover;
+    object-fit: cover; /* gambar tidak gepeng */
 }
+
 
 /* ===================================== */
 /* TEKS */
 /* ===================================== */
 .story-text h2 {
-    color: var(--primary);
+    color: var(--primary); /* warna judul */
 }
 
 .story-text p {
-    color: var(--text-muted);
+    color: var(--text-muted); /* warna paragraf */
 }
 
+
 /* ===================================== */
-/* RESPONSIVE */
+/* RESPONSIVE (UNTUK HP) */
 /* ===================================== */
 @media (max-width: 768px) {
     .story-article {
-        flex-direction: column;
+        flex-direction: column; /* susunan jadi ke bawah */
     }
 }
