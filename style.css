@@ -1,30 +1,34 @@
 /* ===================================== */
-/* VARIABEL WARNA DAN FONT */
+/* CUSTOM PROPERTIES (VARIABEL) */
 /* ===================================== */
 :root {
-    /* ✨ BOLEH DIGANTI: warna utama website */
-    --primary: #047857;
 
-    /* ✨ BOLEH DIGANTI: warna tambahan (aksen) */
-    --accent: #F59E0B;
+    /* ✨ ISI WARNA: warna utama website */
+    --primary: ;
 
-    /* ✨ BOLEH DIGANTI: warna teks utama */
-    --text-main: #1F2937;
+    /* ✨ ISI WARNA: warna lebih terang dari primary */
+    --primary-light: ;
 
-    /* ✨ BOLEH DIGANTI: warna teks paragraf */
-    --text-muted: #4B5563;
+    /* ✨ ISI WARNA: warna aksen (biasanya kuning/orange) */
+    --accent: ;
 
-    /* ✨ BOLEH DIGANTI: warna background halaman */
-    --bg-page: #F3F4F6;
+    /* ✨ ISI WARNA: warna teks utama */
+    --text-main: ;
 
-    /* ✨ BOLEH DIGANTI: warna card */
-    --bg-card: #FFFFFF;
+    /* ✨ ISI WARNA: warna teks paragraf */
+    --text-muted: ;
 
-    /* ✨ BOLEH DIGANTI: font untuk judul */
-    --font-heading: 'Playfair Display', serif;
+    /* ✨ ISI WARNA: background halaman */
+    --bg-page: ;
 
-    /* ✨ BOLEH DIGANTI: font untuk isi */
-    --font-body: 'Outfit', sans-serif;
+    /* ✨ ISI WARNA: background card */
+    --bg-card: ;
+
+    /* ✨ ISI FONT: font untuk judul */
+    --font-heading: ;
+
+    /* ✨ ISI FONT: font untuk isi */
+    --font-body: ;
 }
 
 
@@ -39,35 +43,149 @@
 
 
 /* ===================================== */
-/* BODY (HALAMAN UTAMA) */
+/* BODY */
 /* ===================================== */
 body {
     font-family: var(--font-body); /* mengambil font dari variabel */
     background-color: var(--bg-page); /* warna background */
-    color: var(--text-main); /* warna teks utama */
+    color: var(--text-main); /* warna teks */
+    line-height: 1.6; /* jarak antar baris */
+    overflow-x: hidden; /* mencegah scroll ke samping */
 }
 
 
 /* ===================================== */
-/* HERO (BAGIAN ATAS HALAMAN) */
+/* HERO (HEADER ATAS) */
 /* ===================================== */
 .hero {
-    /* ✨ BOLEH DIGANTI: warna gradient & gambar */
-    background: linear-gradient(
-        135deg,
-        rgba(4,120,87,0.9),
-        rgba(16,185,129,0.8)
-    ),
-    url("img/bg.jpg");
+
+    /* ✨ ISI GRADIENT + GAMBAR */
+    background:
+    linear-gradient(135deg, var(--primary), var(--primary-light)), /* gradasi warna */
+    url(""); /* masukkan gambar */
+
+    background-size: cover; /* gambar memenuhi area */
+    background-position: center; /* posisi tengah */
 
     min-height: 60vh; /* tinggi minimal layar */
 
-    display: flex; /* mengaktifkan flexbox */
-    justify-content: center; /* tengah horizontal */
+    display: flex; /* aktifkan flexbox */
     align-items: center; /* tengah vertikal */
+    justify-content: center; /* tengah horizontal */
 
     text-align: center; /* teks rata tengah */
+    padding: 2rem; /* jarak dalam */
+
+    position: relative; /* supaya child bisa absolute */
+
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); /* bentuk miring */
+
+    margin-bottom: 2rem; /* jarak ke bawah */
+}
+
+
+/* ===================================== */
+/* HERO CONTENT */
+/* ===================================== */
+.hero-content {
+    max-width: 800px; /* lebar maksimal */
     color: white; /* warna teks */
+    z-index: 1; /* posisi di atas */
+
+    animation: fadeUp 1s ease-out; /* animasi muncul */
+}
+
+
+/* LABEL KECIL */
+.tag {
+    display: inline-block; /* supaya bisa diatur ukuran */
+
+    background-color: var(--accent); /* warna background */
+    color: white; /* warna teks */
+
+    padding: 0.3rem 1.2rem; /* jarak dalam */
+    border-radius: 50px; /* bentuk bulat */
+
+    font-size: 0.875rem; /* ukuran kecil */
+    font-weight: 600; /* tebal */
+
+    text-transform: uppercase; /* huruf besar */
+    letter-spacing: 1px; /* jarak huruf */
+
+    margin-bottom: 1.5rem; /* jarak bawah */
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* bayangan */
+}
+
+
+/* JUDUL */
+.hero-content h1 {
+    font-family: var(--font-heading); /* font judul */
+
+    font-size: clamp(2.5rem, 5vw, 4rem); /* ukuran fleksibel */
+
+    font-style: italic; /* miring */
+    margin-bottom: 1rem; /* jarak bawah */
+
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* bayangan teks */
+}
+
+
+/* DESKRIPSI */
+.hero-content p {
+    font-size: 1.125rem; /* ukuran teks */
+
+    margin-bottom: 2rem; /* jarak bawah */
+    max-width: 600px; /* batas lebar */
+
+    margin-inline: auto; /* posisi tengah */
+}
+
+
+/* ===================================== */
+/* INFO PENULIS */
+/* ===================================== */
+.author-info {
+    display: flex; /* sejajar */
+    align-items: center; /* tengah vertikal */
+    justify-content: center; /* tengah horizontal */
+
+    gap: 1rem; /* jarak antar elemen */
+
+    background: rgba(255, 255, 255, 0.15); /* transparan */
+
+    padding: 0.5rem 1.5rem; /* jarak dalam */
+    border-radius: 50px; /* bulat */
+
+    backdrop-filter: blur(8px); /* efek blur */
+
+    width: fit-content; /* mengikuti isi */
+    margin: 0 auto; /* tengah */
+}
+
+
+/* FOTO PROFIL */
+.avatar {
+    width: 45px; /* lebar */
+    height: 45px; /* tinggi */
+    border-radius: 50%; /* bulat */
+
+    background-color: var(--accent); /* warna default */
+
+    background-image: url(""); /* masukkan foto */
+    background-size: cover; /* penuh */
+
+    border: 2px solid white; /* garis luar */
+}
+
+
+/* ===================================== */
+/* CONTAINER */
+/* ===================================== */
+.container {
+    max-width: 1100px; /* lebar maksimal */
+    margin: 0 auto; /* tengah */
+    padding: 2rem; /* jarak dalam */
 }
 
 
@@ -75,69 +193,147 @@ body {
 /* CARD CERITA */
 /* ===================================== */
 .story-article {
-    display: flex; /* membuat gambar & teks sejajar */
-    gap: 3rem; /* jarak antar elemen */
+    display: flex; /* 🔒 jangan diubah */
+    align-items: center; /* tengah */
 
-    /* ✨ BOLEH DIGANTI: jarak antar card */
-    margin-bottom: 4rem;
+    gap: 4rem; /* jarak */
+
+    margin-bottom: 5rem; /* jarak bawah */
 
     background: var(--bg-card); /* warna card */
-    padding: 2rem; /* jarak dalam */
-    border-radius: 20px; /* sudut melengkung */
+    padding: 3rem; /* jarak dalam */
+
+    border-radius: 24px; /* sudut bulat */
+
+    box-shadow: 0 20px 25px rgba(0,0,0,0.05); /* bayangan */
 }
 
 
-/* MEMBALIK POSISI (JANGAN DIHAPUS) */
+/* MEMBALIK POSISI */
 .story-article.reversed {
-    flex-direction: row-reverse; /* membalik posisi gambar & teks */
+    flex-direction: row-reverse; /* membalik posisi */
 }
 
 
 /* ===================================== */
 /* FOTO */
 /* ===================================== */
+.story-image {
+    flex: 1; /* mengambil ruang */
+    min-width: 300px; /* minimal lebar */
+}
+
+
+/* KARTU FOTO */
 .photo-card {
-    /* ✨ BOLEH DICOBA: ubah kemiringan */
-    transform: rotate(var(--rotation));
+    background: ; /* isi warna */
 
-    transition: 0.3s; /* animasi halus */
+    padding: 1.2rem 1.2rem 3.5rem; /* jarak dalam */
+
+    border-radius: 12px; /* sudut */
+
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1); /* bayangan */
+
+    transform: rotate(var(--rotation)); /* kemiringan */
+
+    transition: 0.5s; /* animasi */
 }
 
 
-/* EFEK SAAT DIHOVER */
+/* HOVER FOTO */
 .photo-card:hover {
-    transform: scale(1.05); /* membesar sedikit */
+    transform: translateY(-10px) rotate(0deg) scale(1.05); /* efek hover */
 }
 
 
-/* ===================================== */
-/* GAMBAR */
-/* ===================================== */
-.photo-wrapper img {
+/* WRAPPER FOTO */
+.photo-wrapper {
     width: 100%; /* lebar penuh */
-    height: 100%; /* tinggi penuh */
+    aspect-ratio: 3/4; /* rasio foto */
 
-    object-fit: cover; /* gambar tidak gepeng */
+    overflow: hidden; /* potong gambar */
+    border-radius: 6px; /* sudut */
+}
+
+
+/* GAMBAR */
+.photo-wrapper img {
+    width: 100%; /* penuh */
+    height: 100%; /* penuh */
+
+    object-fit: cover; /* 🔒 jangan diubah */
+}
+
+
+/* CAPTION */
+.photo-card figcaption {
+    text-align: center; /* tengah */
+    font-style: italic; /* miring */
+    margin-top: 10px; /* jarak */
 }
 
 
 /* ===================================== */
 /* TEKS */
 /* ===================================== */
+.story-text {
+    flex: 1; /* ambil ruang */
+}
+
 .story-text h2 {
-    color: var(--primary); /* warna judul */
+    font-family: var(--font-heading); /* font judul */
+    color: var(--primary); /* warna */
+
+    margin-bottom: 1rem; /* jarak */
 }
 
 .story-text p {
-    color: var(--text-muted); /* warna paragraf */
+    color: var(--text-muted); /* warna */
+    line-height: 1.8; /* jarak */
 }
 
 
 /* ===================================== */
-/* RESPONSIVE (UNTUK HP) */
+/* FOOTER */
+/* ===================================== */
+footer {
+    text-align: center; /* tengah */
+    padding: 2rem; /* jarak */
+}
+
+
+/* ===================================== */
+/* ANIMASI */
+/* ===================================== */
+@keyframes fadeUp {
+    from {
+        opacity: 0; /* tidak terlihat */
+        transform: translateY(40px); /* dari bawah */
+    }
+
+    to {
+        opacity: 1; /* muncul */
+        transform: translateY(0); /* posisi normal */
+    }
+}
+
+
+/* ===================================== */
+/* RESPONSIVE */
 /* ===================================== */
 @media (max-width: 768px) {
-    .story-article {
-        flex-direction: column; /* susunan jadi ke bawah */
+
+    .story-article,
+    .story-article.reversed {
+        flex-direction: column; /* jadi ke bawah */
+        gap: 2rem; /* jarak */
+    }
+
+    .photo-card {
+        transform: rotate(0) !important; /* lurus */
+    }
+
+    .hero {
+        clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%); /* bentuk hp */
     }
 }
